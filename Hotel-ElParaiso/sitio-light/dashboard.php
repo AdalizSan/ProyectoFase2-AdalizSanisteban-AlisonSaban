@@ -30,21 +30,21 @@ $habitaciones = [
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../Imagenes/logo.ico">
+    <link rel="icon" href="Imagenes/logo.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="../Imagenes/logo.ico" alt="Logo" width="40" class="d-inline-block align-text-top">
+                <img src="Imagenes/logo.ico" alt="Logo" width="40" class="d-inline-block align-text-top">
                 Hotel El Paraíso
             </a>
             <div class="ms-auto">
-                    <a href="../logout.php" class="btn btn-danger">Cerrar Sesión</a>
+                    <a href="logout.php" class="btn btn-danger">Cerrar Sesión</a>
             </div>
         </div>
     </nav>
