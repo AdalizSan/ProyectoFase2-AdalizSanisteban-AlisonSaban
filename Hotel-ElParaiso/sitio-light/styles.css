@@ -1,0 +1,93 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-image: url('https://www.transparenttextures.com/patterns/palm.png');
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    }
+html, body {
+    height: 100%;
+    padding: auto;
+    }
+
+.navbar {
+    background-color: #ff7f50 !important; /* Coral vibrante */
+    }
+.others-tipos {
+    margin-top: 100px;
+    text-align: center;
+    font-family: "Permanent Marker", cursive;
+    color: #77b610;
+    font-size: 3rem;
+    text-shadow: 2px 2px 1px rgba(0,0,0,0.2);
+    }
+.navbar-brand {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.7rem;
+    color: #fff;
+    }
+
+.nav-link {
+    color: #fff !important;
+    font-weight: bold;
+    }
+
+.nav-link:hover {
+    color: #ffe4b5 !important;
+    }
+
+.navbar-brand img {
+    border-radius: 50%;
+    }
+
+.tropical-header {
+    margin-top: 100px;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    color: #2e8b57;
+    font-size: 3rem;
+    text-shadow: 5px 5px 3px rgba(0,0,0,0.2);
+    }
+
+
+.modal-content {
+    background-color: #ffe4b5;
+    }
+
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 60px;
+        }
+.card {
+            background-color: #ffe4b5;
+            border: none;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+.card h2 {
+    font-family: 'Pacifico', cursive;
+    color: #2e8b57;
+    margin-bottom: 20px;
+    }
+
+.card h4 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.btn-home {
+    margin-top: 20px;
+    background-color: #2e8b57;
+    color: white;
+    }
+
+.btn-home:hover {
+    background-color: #256b47;
+    }
