@@ -54,21 +54,21 @@ $habitaciones = [
         <h2>Bienvenido, <?php echo htmlspecialchars($_SESSION['usuario']); ?>!</h2>
         <p>Esta es la sección privada para empleados.</p>
     </div>
-
-            <h3>Estado de Habitaciones</h3>
-            <div class="row">
-                <?php foreach ($habitaciones as $habitacion): ?>
-                    <div class="col-md-3 mb-3">
-                        <div class="card text-center <?php echo $habitacion['ocupada'] ? 'bg-danger text-white' : 'bg-success text-white'; ?>">
-                            <div class="card-body">
-                                <h5 class="card-title">Habitación <?php echo $habitacion['numero']; ?></h5>
-                                <p class="card-text"><?php echo $habitacion['ocupada'] ? 'Ocupada' : 'Vacía'; ?></p>
-                            </div>
-                        </div>
+<div class="container mt-4">
+    <h3 class="text-warning mt-5 mb-3">Estado de Habitaciones</h3>
+    <div class="row">
+        <?php foreach ($habitaciones as $habitacion): ?>
+            <div class="col-md-3 mb-3">
+                <div class="card text-center <?php echo $habitacion['ocupada'] ? 'bg-danger text-white' : 'bg-success text-white'; ?>">
+                    <div class="card-body">
+                        <h5 class="card-title">Habitación <?php echo $habitacion['numero']; ?></h5>
+                        <p class="card-text"><?php echo $habitacion['ocupada'] ? 'Ocupada' : 'Vacía'; ?></p>
                     </div>
-                <?php endforeach; ?>
+                </div>
             </div>
-        </div>
+        <?php endforeach; ?>
+    </div>
+</div>
 <!-- Sección de Huéspedes -->
 <h3>Huéspedes Hospedados</h3>
 <table class="table table-striped">
