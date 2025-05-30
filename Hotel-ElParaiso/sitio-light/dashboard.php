@@ -1,26 +1,40 @@
 <?php
-session_start();
+require_once "conexion.php";
 
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    header("Location: ../index.php");
-    exit();
+$habitaciones = [];
+
+$sql = "SELECT h.id_habitacion AS numero, 
+            ceh.nombre AS estado 
+        FROM Habitacion h
+        JOIN Catalogo_Estado_Habitacion ceh ON h.id_estado_habitacion = ceh.id_estado_habitacion";
+
+$result = $conn->query($sql);
+
+while ($row = $result->fetch_assoc()) {
+    $habitaciones[] = [
+        "numero" => $row["numero"],
+        "ocupada" => strtolower($row["estado"]) === 'ocupada'
+    ];
+}
+$huespedes = [];
+
+$sql = "SELECT c.nombre, 
+            TIMESTAMPDIFF(YEAR, c.fecha_nacimiento, CURDATE()) AS edad,
+            DATEDIFF(CURDATE(), e.fecha_ingreso) AS noches
+        FROM Estancia e
+        JOIN Cliente c ON e.id_cliente = c.id_cliente
+        WHERE e.fecha_salida IS NULL OR e.fecha_salida > CURDATE()";
+
+$result = $conn->query($sql);
+
+while ($row = $result->fetch_assoc()) {
+    $huespedes[] = [
+        "nombre" => $row["nombre"],
+        "edad" => $row["edad"],
+        "noches" => $row["noches"]
+    ];
 }
 
-$huespedes = [
-    ["nombre" => "Juan Pérez", "noches" => 2, "edad" => 65],
-    ["nombre" => "María López", "noches" => 3, "edad" => 45],
-    ["nombre" => "Carlos Gómez", "noches" => 1, "edad" => 70]
-];
-$habitaciones = [
-        ["numero" => 1, "ocupada" => false],
-        ["numero" => 2, "ocupada" => true],
-        ["numero" => 3, "ocupada" => false],
-        ["numero" => 4, "ocupada" => true],
-        ["numero" => 5, "ocupada" => false],
-        ["numero" => 6, "ocupada" => false],
-        ["numero" => 7, "ocupada" => true],
-        ["numero" => 8, "ocupada" => false]
-    ];
 ?>
 
 <!DOCTYPE html>

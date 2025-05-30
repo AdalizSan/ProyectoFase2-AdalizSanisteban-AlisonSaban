@@ -1,18 +1,30 @@
 <?php
 session_start();
+require_once "conexion.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuario = $_POST['usuario'];
-    $contrasenia = $_POST['contrasenia'];
-    if ($usuario === "admin" && $contrasenia === "admin") {
-        $_SESSION['usuario'] = $usuario;
-        $_SESSION['loggedin'] = true;
-        header("Location: dashboard.php");
-        exit();
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $usuario = $_POST["usuario"];
+    $password = $_POST["password"];
+
+    $stmt = $conn->prepare("SELECT id, usuario, password FROM usuarios WHERE usuario = ?");
+    $stmt->bind_param("s", $usuario);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
+    if ($resultado->num_rows === 1) {
+        $row = $resultado->fetch_assoc();
+        if (password_verify($password, $row["password"])) {
+            $_SESSION["loggedin"] = true;
+            $_SESSION["usuario"] = $row["usuario"];
+            header("Location: dashboard.php");
+            exit;
+        } else {
+            $error = "Contraseña incorrecta.";
+        }
     } else {
-        $_SESSION['error'] = "Usuario o contraseña incorrectos.";
-        header("Location: index.php");
-        exit();
+        $error = "Usuario no encontrado.";
     }
 }
 ?>
+
+
